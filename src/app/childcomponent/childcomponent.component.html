@@ -1,0 +1,33 @@
+
+All<input type="radio" name="gender"  (click)="radiochange($event)"value ="All">
+Male<input type="radio" name="gender" (change)="radiochange($event)" value="Male">
+Female<input type="radio" name="gender" (change)="radiochange($event)" value="Female">
+<table border="9"  align="center" style="background-color:wheat">
+    <thead>
+        <th [class.navy]="true">ID</th>
+        <th [class.navy]="true">NAME</th>
+        <th [class.navy]="true">ADDRESS</th>
+        <th [class.navy]="true">GENDER</th>
+        <th [class.navy]="true">SALARY</th>
+        <th [class.navy]="true">DOJ</th>
+    </thead>
+    <tbody> 
+        <ng-container *ngIf="Empdata.length>0">
+           
+        <tr *ngFor = "let employee of Empdata |filtergender:gender">
+            <td [class.purple]="true">{{employee.id}}</td>
+            <td [class.purple]="true">{{employee.name | customgenderpipe:employee.gender }}</td>
+            <td [class.purple]="true">{{employee.address}}</td>
+            <td [class.purple]="true">{{employee.gender }}</td>
+            <td [class.red]="true">{{employee.salary | currency:'USD':true}}</td>
+            <td  [class.red]="true">{{employee.dateofjoining |date:"dd/MM/yyyy"}}</td>
+        </tr>
+    </ng-container> 
+    <tr *ngIf="Empdata.length == 0">No Employee Data</tr>
+    </tbody>
+</table><br>
+<!-- <button (click)="filter()" value="male" [(ngModel)]="employee.gender"></button> -->
+<div style="text-align: center">
+<button (click)="countEmp()"><span [class.gold]="true">count</span></button>
+</div>
+

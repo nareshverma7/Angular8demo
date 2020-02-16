@@ -1,0 +1,63 @@
+<div style="text-align: center"><span [class.palevioletred]="true">EMPLOYEE APP</span><h3></h3></div>
+
+<div style="padding: 10px">
+    <h2 style="color: tomato;">Employee Form</h2>  
+    <!-- <button (click)="empData()">Employee Details</button> -->
+   <!-- <ng-container ngFor="let g of Employees |filtergender:value">
+       <tr *ngIf = "g.gender='Male">
+    <input (change)="selectedgender()" type="checkbox" [(ngModel)]="g.gender" value="Male">Male
+    <input (change)="selectedgender()" type="checkbox" [(ngModel)]="g.gender" value="Female">Female
+    </ng-container> -->
+    <table [class.a] ="true"> 
+        <tr>
+            <td>ID</td>
+            <td><input type="number" [(ngModel)]="employee.id" /></td>
+        </tr>
+        <tr>
+            <td>NAME</td>
+            <td><input type="text" [(ngModel)]="employee.name" /></td>
+        </tr>
+        <tr>
+            <td>ADDRESS</td>
+            <td><input type="text" [(ngModel)]="employee.address" /></td>
+        </tr>
+        <tr>
+            <td>GENDER</td>
+            <td><input type="text" [(ngModel)]="employee.gender" /></td>
+        </tr>
+        <tr>
+            <td>SALARY</td>
+            <td><input type="number" [(ngModel)]="employee.salary" /></td>
+        </tr>
+        <tr>
+            <td>DOJ</td>
+            <td><input type="date" [(ngModel)]="employee.dateofjoining" /></td>
+        </tr>
+        <tr>
+            <td>USERNAME</td>
+            <td><input type="text" [(ngModel)]="employee.uname" /></td>
+        </tr>
+        <tr>
+            <td>PASSWORD</td>
+            <td><input type="text" [(ngModel)]="employee.pass" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>  
+                <input type="button" value="Submit" (click)="submit()" />     
+                <input type="button" value="Reset" (click)="reset()" />  
+            </td>  
+        </tr>
+    </table>
+</div>
+    <h3 [class.purple]="true">
+        Number of Employees : <span [ngStyle]="{'color':'green'}">
+        {{count}}</span>
+        
+        </h3>
+  
+    <app-childcomponent [Empdata]="Employees" (childeventforParent)="responsefromchild($event)"></app-childcomponent>
+    <div style="text-align: center">
+        <span [class.red]="true"><h3>{{elsepart}}</h3></span>
+    </div>
+
